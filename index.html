@@ -196,20 +196,17 @@
   .fac-item p{font-size:.86rem; color:#C7D2DE;}
 
   /* ---------- Fee structure ---------- */
-  .fee-tabs{display:flex; justify-content:center; gap:10px; margin-bottom:36px; flex-wrap:wrap;}
-  .fee-tab{
-    padding:10px 20px; border:1px solid var(--navy); border-radius:30px; font-weight:700; font-size:.85rem;
-    color:var(--navy); background:#fff; cursor:pointer;
-  }
-  .fee-tab.active{background:var(--navy); color:var(--ivory);}
-  .fee-panel{display:none;}
-  .fee-panel.active{display:block;}
-  .fee-table{width:100%; border-collapse:collapse; background:#fff; border:1px solid var(--line); border-radius:4px; overflow:hidden;}
+  .fee-table-wrap{background:#fff; border:1px solid var(--line); border-radius:4px; overflow:hidden;}
+  .fee-table{width:100%; border-collapse:collapse;}
   .fee-table thead tr{background:var(--maroon); color:var(--ivory);}
-  .fee-table th, .fee-table td{padding:14px 20px; text-align:left; font-size:.9rem;}
+  .fee-table th, .fee-table td{padding:13px 20px; text-align:left; font-size:.9rem;}
   .fee-table th{font-weight:700; letter-spacing:.03em; text-transform:uppercase; font-size:.75rem;}
   .fee-table tbody tr:nth-child(even){background:var(--ivory);}
   .fee-table tbody tr td:last-child, .fee-table thead th:last-child{text-align:right; font-family:'Playfair Display',serif; font-weight:700; color:var(--navy);}
+  .fee-group-row td{
+    background:var(--navy)!important; color:var(--gold-soft); font-weight:800; font-size:.72rem;
+    letter-spacing:.1em; text-transform:uppercase; padding:10px 20px;
+  }
   .fee-note{
     margin-top:18px; padding:16px 20px; background:var(--ivory); border-left:3px solid var(--gold);
     font-size:.85rem; color:var(--muted); border-radius:2px;
@@ -267,6 +264,7 @@
   @media(max-width:600px){
     .why-grid, .acad-grid, .steps{grid-template-columns:1fr;}
     .hero{height:100vh;}
+    .fee-table th, .fee-table td{padding:10px 12px; font-size:.82rem;}
   }
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
@@ -340,9 +338,7 @@
 <section id="about">
   <div class="container about-grid">
     <div class="about-img">
-      <!-- You can use either group or group1 here, or any campus image -->
       <img src="images/group1.jpeg" alt="Maa Kaushalaya Public School Students" style="width: 100%; height: 100%; object-fit: cover;">
-    </div>
     </div>
     <div class="about-text">
       <div class="eyebrow">About Our School</div>
@@ -476,56 +472,45 @@
   <div class="container">
     <div class="section-head">
       <div class="eyebrow">Fee Structure</div>
-      <h2>Transparent, annual fee schedule</h2>
+      <h2>Admission &amp; Monthly Fee Structure</h2>
       <div class="rule"></div>
     </div>
 
-    <div class="fee-tabs">
-      <button class="fee-tab active" onclick="showFee('pre', this)">Pre-Primary</button>
-      <button class="fee-tab" onclick="showFee('primary', this)">Class I – V</button>
-      <button class="fee-tab" onclick="showFee('middle', this)">Class VI – VIII</button>
-    </div>
-
-    <div class="fee-panel active" id="fee-pre">
+    <div class="fee-table-wrap">
       <table class="fee-table">
         <thead><tr><th>Fee Head</th><th>Frequency</th><th>Amount (₹)</th></tr></thead>
         <tbody>
-          <tr><td>Admission Fee (one-time)</td><td>Once</td><td>3,000</td></tr>
-          <tr><td>Tuition Fee</td><td>Monthly</td><td>800</td></tr>
-          <tr><td>Annual Charges</td><td>Yearly</td><td>2,500</td></tr>
-          <tr><td>Books &amp; Stationery</td><td>Yearly</td><td>1,800</td></tr>
-        </tbody>
-      </table>
-    </div>
+          <tr class="fee-group-row"><td colspan="3">One-Time</td></tr>
+          <tr><td>Admission &amp; Registration Fee</td><td>One Time</td><td>4,500</td></tr>
 
-    <div class="fee-panel" id="fee-primary">
-      <table class="fee-table">
-        <thead><tr><th>Fee Head</th><th>Frequency</th><th>Amount (₹)</th></tr></thead>
-        <tbody>
-          <tr><td>Admission Fee (one-time)</td><td>Once</td><td>3,500</td></tr>
-          <tr><td>Tuition Fee</td><td>Monthly</td><td>1,000</td></tr>
-          <tr><td>Annual Charges</td><td>Yearly</td><td>3,000</td></tr>
-          <tr><td>Books &amp; Stationery</td><td>Yearly</td><td>2,200</td></tr>
-          <tr><td>Computer Lab Fee</td><td>Yearly</td><td>1,000</td></tr>
-        </tbody>
-      </table>
-    </div>
+          <tr class="fee-group-row"><td colspan="3">Monthly Tuition Fee</td></tr>
+          <tr><td>Nursery</td><td>Monthly</td><td>800</td></tr>
+          <tr><td>LKG</td><td>Monthly</td><td>900</td></tr>
+          <tr><td>UKG</td><td>Monthly</td><td>1,000</td></tr>
+          <tr><td>Class 1</td><td>Monthly</td><td>1,000</td></tr>
+          <tr><td>Class 2</td><td>Monthly</td><td>1,100</td></tr>
+          <tr><td>Class 3</td><td>Monthly</td><td>1,200</td></tr>
+          <tr><td>Class 4</td><td>Monthly</td><td>1,300</td></tr>
+          <tr><td>Class 5</td><td>Monthly</td><td>1,400</td></tr>
+          <tr><td>Class 6</td><td>Monthly</td><td>1,500</td></tr>
+          <tr><td>Class 7</td><td>Monthly</td><td>1,600</td></tr>
+          <tr><td>Class 8</td><td>Monthly</td><td>1,700</td></tr>
+          <tr><td>Navodaya &amp; Competition Class</td><td>Monthly</td><td>1,500</td></tr>
 
-    <div class="fee-panel" id="fee-middle">
-      <table class="fee-table">
-        <thead><tr><th>Fee Head</th><th>Frequency</th><th>Amount (₹)</th></tr></thead>
-        <tbody>
-          <tr><td>Admission Fee (one-time)</td><td>Once</td><td>4,000</td></tr>
-          <tr><td>Tuition Fee</td><td>Monthly</td><td>1,200</td></tr>
-          <tr><td>Annual Charges</td><td>Yearly</td><td>3,500</td></tr>
-          <tr><td>Books &amp; Stationery</td><td>Yearly</td><td>2,600</td></tr>
-          <tr><td>Science &amp; Computer Lab Fee</td><td>Yearly</td><td>1,500</td></tr>
+          <tr class="fee-group-row"><td colspan="3">Computer Class</td></tr>
+          <tr><td>Class 1 – 5</td><td>Monthly</td><td>200</td></tr>
+          <tr><td>Class 6 – 8</td><td>Monthly</td><td>300</td></tr>
+
+          <tr class="fee-group-row"><td colspan="3">Yearly Charges</td></tr>
+          <tr><td>Stationery (School Diary, ID Card)</td><td>Yearly</td><td>300</td></tr>
+          <tr><td>Examination Fee — Class 1 to 5</td><td>Yearly</td><td>1,200</td></tr>
+          <tr><td>Examination Fee — Class 6 to 8</td><td>Yearly</td><td>1,500</td></tr>
         </tbody>
       </table>
     </div>
 
     <div class="fee-note">
-      Sample figures shown for layout purposes — replace with Maa Kaushalaya Public School's actual fee amounts before publishing. Transport fee is charged separately based on distance/route.
+      Fees are payable monthly by the 10th of each month. The Admission &amp; Registration Fee is charged once at the time of enrolment. Transport fee, where applicable, is charged separately based on distance/route.
     </div>
   </div>
 </section>
@@ -573,7 +558,7 @@
           <div class="c-ico">✉</div>
           <div><b>Email</b><span>mkps.tharbitia.01@gmail.com</span></div>
         </div>
-        <div class="c-row"> 
+        <div class="c-row">
           <div class="c-ico">🕐</div>
           <div><b>Office Hours</b><span>Mon – Sat, 8:00 AM – 2:00 PM</span></div>
         </div>
@@ -638,36 +623,6 @@
   document.querySelector('.hero').addEventListener('mouseenter', () => clearInterval(autoplay));
   document.querySelector('.hero').addEventListener('mouseleave', () => { autoplay = setInterval(() => moveSlide(1), 5500); });
 
-  // Fee tabs
-  function showFee(key, btn){
-    document.querySelectorAll('.fee-tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.fee-panel').forEach(p => p.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById('fee-' + key).classList.add('active');
-  }
-</script>
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyCFOJo34HHfgSdUNyb4UZDzWipvPQ7laQ0",
-    authDomain: "school-web-app-65eaa.firebaseapp.com",
-    projectId: "school-web-app-65eaa",
-    storageBucket: "school-web-app-65eaa.firebasestorage.app",
-    messagingSenderId: "343977316325",
-    appId: "1:343977316325:web:fae89b2d1b97adcbfd290c",
-    measurementId: "G-DP5XB3MGGQ"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
 </script>
 
 </body>
