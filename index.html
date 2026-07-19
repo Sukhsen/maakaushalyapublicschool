@@ -3,634 +3,508 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Maa Kaushalaya Public School — Tharbitia</title>
+<title>Maa Kaushlaya Public School · Tharbitia, Supaul</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Mulish:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink:      '#182131',
+          paper:    '#F8F6F1',
+          primary:  { DEFAULT:'#123A66', dark:'#0B2748', light:'#1F4E82', tint:'#E9EFF6' },
+          gold:     { DEFAULT:'#B4872C', dark:'#8F6A20', tint:'#F6EDDA' },
+          emerald:  { DEFAULT:'#2E6B52', dark:'#204C3B', tint:'#E6F0EA' },
+        },
+        fontFamily: {
+          display: ['Fraunces','serif'],
+          body: ['Manrope','sans-serif'],
+        },
+      }
+    }
+  }
+</script>
 <style>
-  :root{
-    --navy:#0B2A4A;
-    --navy-deep:#071B32;
-    --maroon:#7A1E2B;
-    --maroon-deep:#5C141E;
-    --gold:#C9A24B;
-    --gold-soft:#E4CD8D;
-    --cream:#FAF6EE;
-    --ivory:#F6EFE1;
-    --ink:#22201C;
-    --muted:#6B655B;
-    --line:#E7DDC8;
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    font-family:'Mulish', sans-serif;
-    background:var(--cream);
-    color:var(--ink);
-    line-height:1.6;
-  }
-  h1,h2,h3,h4{font-family:'Playfair Display', serif; font-weight:700; color:var(--navy);}
-  a{text-decoration:none; color:inherit;}
-  img{max-width:100%; display:block;}
-  .container{max-width:1180px; margin:0 auto; padding:0 24px;}
-  .eyebrow{
-    font-family:'Mulish', sans-serif; font-weight:800; letter-spacing:.18em; text-transform:uppercase;
-    font-size:.72rem; color:var(--maroon);
+  html { scroll-behavior: smooth; }
+  body { font-family:'Manrope',sans-serif; background:#F8F6F1; color:#182131; }
+  .font-display { font-family:'Fraunces','serif'; font-optical-sizing:auto; }
+  .scrollbar-hide { -ms-overflow-style:none; scrollbar-width:none; }
+  .scrollbar-hide::-webkit-scrollbar { display:none; }
+
+  /* seal motif — the recurring signature mark */
+  .seal { position:relative; }
+  .seal::before {
+    content:'';
+    position:absolute; inset:-6px;
+    border:1px dashed rgba(180,135,44,0.55);
+    border-radius:9999px;
   }
 
-  /* Scallop divider — signature element, evokes the toran/bunting hung at Indian school gates */
-  .scallop{
-    height:22px; width:100%;
-    background-image: radial-gradient(circle at 11px 0, transparent 11px, var(--gold) 11.5px);
-    background-size:22px 22px;
-    background-repeat:repeat-x;
-    background-position:top;
-  }
-  .scallop.flip{ transform:rotate(180deg); }
-  .scallop.on-navy{ background-image: radial-gradient(circle at 11px 0, transparent 11px, var(--navy) 11.5px); }
-  .scallop.on-cream{ background-image: radial-gradient(circle at 11px 0, transparent 11px, var(--cream) 11.5px); }
-
-  /* ---------- Header ---------- */
-  header{
-    position:sticky; top:0; z-index:100;
-    background:var(--navy);
-    border-bottom:3px solid var(--gold);
-  }
-  .nav-wrap{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:14px 24px; max-width:1180px; margin:0 auto;
-  }
-  .brand{display:flex; align-items:center; gap:12px;}
-  .brand-mark{
-    width:46px; height:46px; border-radius:50%;
-    background:conic-gradient(from 210deg, var(--gold), var(--gold-soft), var(--gold));
-    display:flex; align-items:center; justify-content:center;
-    font-family:'Playfair Display', serif; font-weight:800; color:var(--navy-deep); font-size:1.15rem;
-    border:2px solid var(--ivory);
-  }
-  .brand-text .name{color:var(--ivory); font-family:'Playfair Display',serif; font-weight:700; font-size:1.15rem; line-height:1.1;}
-  .brand-text .sub{color:var(--gold-soft); font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; font-weight:700;}
-  nav ul{list-style:none; display:flex; gap:28px;}
-  nav a{color:var(--ivory); font-weight:600; font-size:.92rem; position:relative; padding:6px 0;}
-  nav a:hover{color:var(--gold-soft);}
-  .nav-cta{
-    background:var(--maroon); color:var(--ivory)!important; padding:10px 20px; border-radius:2px;
-    font-weight:700; font-size:.85rem; letter-spacing:.03em; border:1px solid var(--gold);
-  }
-  .nav-cta:hover{background:var(--maroon-deep);}
-  .menu-btn{display:none; background:none; border:none; color:var(--ivory); font-size:1.6rem; cursor:pointer;}
-
-  /* ---------- Hero / Carousel ---------- */
-  .hero{position:relative; height:88vh; min-height:560px; overflow:hidden; background:var(--navy-deep);}
-  .slides{position:relative; height:100%;}
-  .slide{
-    position:absolute; inset:0; opacity:0; transition:opacity 1.1s ease;
-    background-size:cover; background-position:center;
-  }
-  .slide.active{opacity:1;}
-  .slide::after{
-    content:''; position:absolute; inset:0;
-    background:linear-gradient(180deg, rgba(7,27,50,.35) 0%, rgba(7,27,50,.55) 55%, rgba(7,27,50,.92) 100%);
-  }
-  .hero-content{
-    position:absolute; inset:0; z-index:5; display:flex; flex-direction:column;
-    align-items:center; justify-content:center; text-align:center; color:var(--ivory); padding:0 20px;
-  }
-  .hero-content .eyebrow{color:var(--gold-soft);}
-  .hero-content h1{
-    color:var(--ivory); font-size:clamp(2.1rem, 5vw, 3.6rem); margin:14px 0 10px; max-width:820px;
-  }
-  .hero-content p.tag{color:var(--ivory); opacity:.88; max-width:560px; font-size:1.05rem; margin-bottom:26px;}
-  .hero-btns{display:flex; gap:16px; flex-wrap:wrap; justify-content:center;}
-  .btn{
-    padding:13px 26px; font-weight:700; font-size:.92rem; letter-spacing:.02em; border-radius:2px;
-    display:inline-block; border:1px solid transparent; cursor:pointer;
-  }
-  .btn-gold{background:var(--gold); color:var(--navy-deep); border-color:var(--gold);}
-  .btn-gold:hover{background:var(--gold-soft);}
-  .btn-outline{background:transparent; color:var(--ivory); border-color:var(--ivory);}
-  .btn-outline:hover{background:rgba(255,255,255,.1);}
-
-  .dots{position:absolute; bottom:26px; left:0; right:0; z-index:6; display:flex; gap:9px; justify-content:center;}
-  .dot{width:9px; height:9px; border-radius:50%; background:rgba(255,255,255,.4); cursor:pointer; border:1px solid rgba(255,255,255,.6);}
-  .dot.active{background:var(--gold); border-color:var(--gold);}
-  .slide-arrow{
-    position:absolute; top:50%; transform:translateY(-50%); z-index:6;
-    background:rgba(7,27,50,.45); color:var(--ivory); border:1px solid rgba(255,255,255,.4);
-    width:42px; height:42px; border-radius:50%; cursor:pointer; font-size:1.1rem;
-  }
-  .slide-arrow.prev{left:20px;} .slide-arrow.next{right:20px;}
-  .slide-arrow:hover{background:var(--maroon);}
-
-  /* ---------- Stat strip ---------- */
-  .stat-strip{background:var(--maroon); border-top:3px solid var(--gold); border-bottom:3px solid var(--gold);}
-  .stat-strip .container{
-    display:grid; grid-template-columns:repeat(4,1fr); text-align:center; padding:26px 24px;
-  }
-  .stat-strip .stat + .stat{border-left:1px solid rgba(255,255,255,.25);}
-  .stat b{display:block; font-family:'Playfair Display',serif; font-size:2rem; color:var(--gold-soft);}
-  .stat span{color:var(--ivory); font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; font-weight:600;}
-
-  /* ---------- Section shell ---------- */
-  section{padding:76px 0;}
-  .section-head{text-align:center; max-width:640px; margin:0 auto 46px;}
-  .section-head h2{font-size:clamp(1.7rem,3vw,2.3rem); margin:10px 0 14px;}
-  .section-head p{color:var(--muted); font-size:1rem;}
-  .rule{width:70px; height:3px; background:var(--gold); margin:16px auto 0;}
-
-  /* ---------- About ---------- */
-  .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;}
-  .about-img{
-    aspect-ratio:4/5; border-radius:4px; overflow:hidden; border:6px solid #fff;
-    box-shadow:0 18px 40px rgba(11,42,74,.18); position:relative;
-  }
-  .about-img img{width:100%; height:100%; object-fit:cover;}
-  .about-text .eyebrow{margin-bottom:8px;}
-  .about-text h2{margin-bottom:16px;}
-  .about-text p{color:var(--muted); margin-bottom:14px;}
-  .founder-line{
-    margin-top:22px; padding-top:18px; border-top:1px solid var(--line);
-    display:flex; gap:30px; flex-wrap:wrap;
-  }
-  .founder-line div b{display:block; font-family:'Playfair Display',serif; color:var(--navy); font-size:1rem;}
-  .founder-line div span{font-size:.8rem; color:var(--muted);}
-
-  /* ---------- Why us ---------- */
-  .why-bg{background:var(--ivory);}
-  .why-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:26px;}
-  .why-card{
-    background:#fff; padding:30px 22px; text-align:center; border:1px solid var(--line); border-radius:4px;
-    transition:transform .25s ease, box-shadow .25s ease;
-  }
-  .why-card:hover{transform:translateY(-6px); box-shadow:0 16px 30px rgba(11,42,74,.12);}
-  .why-icon{
-    width:56px; height:56px; border-radius:50%; background:var(--navy); color:var(--gold-soft);
-    display:flex; align-items:center; justify-content:center; margin:0 auto 16px; font-size:1.4rem;
-  }
-  .why-card h4{font-size:1.02rem; margin-bottom:8px;}
-  .why-card p{font-size:.87rem; color:var(--muted);}
-
-  /* ---------- Academics ---------- */
-  .acad-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:22px;}
-  .acad-card{
-    border:1px solid var(--line); border-radius:4px; overflow:hidden; background:#fff;
-  }
-  .acad-top{background:var(--navy); color:var(--ivory); padding:20px 22px;}
-  .acad-top .eyebrow{color:var(--gold-soft);}
-  .acad-top h4{color:var(--ivory); font-size:1.15rem; margin-top:6px;}
-  .acad-body{padding:18px 22px;}
-  .acad-body ul{list-style:none;}
-  .acad-body li{
-    font-size:.87rem; color:var(--muted); padding:6px 0; border-bottom:1px dashed var(--line);
-    display:flex; gap:8px;
-  }
-  .acad-body li:last-child{border-bottom:none;}
-  .acad-body li::before{content:'◆'; color:var(--gold); font-size:.6rem; margin-top:5px;}
-
-  /* ---------- Facilities ---------- */
-  .fac-bg{background:var(--navy); color:var(--ivory);}
-  .fac-bg .section-head h2{color:var(--ivory);}
-  .fac-bg .section-head p{color:#C7D2DE;}
-  .fac-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.14);}
-  .fac-item{background:var(--navy-deep); padding:28px 24px;}
-  .fac-item h4{color:var(--gold-soft); font-size:1.02rem; margin-bottom:8px; display:flex; align-items:center; gap:10px;}
-  .fac-item p{font-size:.86rem; color:#C7D2DE;}
-
-  /* ---------- Fee structure ---------- */
-  .fee-table-wrap{background:#fff; border:1px solid var(--line); border-radius:4px; overflow:hidden;}
-  .fee-table{width:100%; border-collapse:collapse;}
-  .fee-table thead tr{background:var(--maroon); color:var(--ivory);}
-  .fee-table th, .fee-table td{padding:13px 20px; text-align:left; font-size:.9rem;}
-  .fee-table th{font-weight:700; letter-spacing:.03em; text-transform:uppercase; font-size:.75rem;}
-  .fee-table tbody tr:nth-child(even){background:var(--ivory);}
-  .fee-table tbody tr td:last-child, .fee-table thead th:last-child{text-align:right; font-family:'Playfair Display',serif; font-weight:700; color:var(--navy);}
-  .fee-group-row td{
-    background:var(--navy)!important; color:var(--gold-soft); font-weight:800; font-size:.72rem;
-    letter-spacing:.1em; text-transform:uppercase; padding:10px 20px;
-  }
-  .fee-note{
-    margin-top:18px; padding:16px 20px; background:var(--ivory); border-left:3px solid var(--gold);
-    font-size:.85rem; color:var(--muted); border-radius:2px;
+  .ruled-bg {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.0), rgba(255,255,255,0.0)),
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.045) 0px, rgba(255,255,255,0.045) 1px, transparent 1px, transparent 34px);
   }
 
-  /* ---------- Admissions ---------- */
-  .steps{display:grid; grid-template-columns:repeat(4,1fr); gap:26px; counter-reset:step;}
-  .step{position:relative; padding:30px 22px 22px; background:#fff; border:1px solid var(--line); border-radius:4px;}
-  .step .num{
-    font-family:'Playfair Display',serif; font-size:2.2rem; color:var(--gold); font-weight:800; line-height:1;
-    margin-bottom:10px; display:block;
-  }
-  .step h4{font-size:1rem; margin-bottom:8px;}
-  .step p{font-size:.85rem; color:var(--muted);}
-
-  /* ---------- Contact ---------- */
-  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--line); border-radius:4px; overflow:hidden;}
-  .contact-info{background:var(--navy); color:var(--ivory); padding:44px 40px;}
-  .contact-info h3{color:var(--ivory); margin-bottom:18px;}
-  .c-row{display:flex; gap:14px; margin-bottom:20px; align-items:flex-start;}
-  .c-ico{
-    width:36px; height:36px; border-radius:50%; background:var(--gold); color:var(--navy-deep);
-    display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:.95rem;
-  }
-  .c-row b{display:block; font-size:.78rem; text-transform:uppercase; letter-spacing:.08em; color:var(--gold-soft);}
-  .c-row span{font-size:.92rem; color:var(--ivory);}
-  .map-box{
-    background:repeating-linear-gradient(45deg, var(--ivory), var(--ivory) 12px, #F0E8D6 12px, #F0E8D6 24px);
-    display:flex; align-items:center; justify-content:center; min-height:340px; padding:30px; text-align:center;
-  }
-  .map-box p{color:var(--muted); font-size:.85rem; max-width:260px;}
-
-  /* ---------- Footer ---------- */
-  footer{background:var(--navy-deep); color:#C7D2DE; padding:50px 0 22px;}
-  .foot-grid{display:grid; grid-template-columns:2fr 1fr 1fr; gap:40px; margin-bottom:34px;}
-  .foot-grid h4{color:var(--ivory); font-size:1rem; margin-bottom:14px;}
-  .foot-grid p, .foot-grid a{font-size:.86rem; color:#B7C2CF; line-height:2;}
-  .foot-brand{display:flex; gap:12px; align-items:center; margin-bottom:14px;}
-  .foot-brand .name{color:var(--ivory); font-family:'Playfair Display',serif; font-size:1.15rem;}
-  .foot-bottom{
-    border-top:1px solid rgba(255,255,255,.12); padding-top:18px; text-align:center; font-size:.78rem; color:#8393A2;
+  .hero-emblem-grid {
+    background-image: radial-gradient(rgba(255,255,255,0.14) 1.4px, transparent 1.4px);
+    background-size: 22px 22px;
   }
 
-  @media(max-width:960px){
-    nav, .nav-cta{display:none;}
-    .menu-btn{display:block;}
-    .about-grid, .contact-grid{grid-template-columns:1fr; gap:30px;}
-    .why-grid, .acad-grid{grid-template-columns:repeat(2,1fr);}
-    .fac-grid{grid-template-columns:1fr;}
-    .steps{grid-template-columns:repeat(2,1fr);}
-    .stat-strip .container{grid-template-columns:repeat(2,1fr); row-gap:20px;}
-    .stat-strip .stat:nth-child(2n+1){border-left:none;}
-    .foot-grid{grid-template-columns:1fr;}
+  @keyframes floatSlow { 0%,100%{ transform:translateY(0px);} 50%{ transform:translateY(-10px);} }
+  .float-slow { animation: floatSlow 6s ease-in-out infinite; }
+
+  .nav-link { position:relative; }
+  .nav-link.active { color:#123A66; }
+  .nav-link.active::after {
+    content:'';
+    position:absolute; left:0; right:0; bottom:-11px;
+    height:3px; border-radius:2px;
+    background: linear-gradient(90deg,#B4872C,#2E6B52);
   }
-  @media(max-width:600px){
-    .why-grid, .acad-grid, .steps{grid-template-columns:1fr;}
-    .hero{height:100vh;}
-    .fee-table th, .fee-table td{padding:10px 12px; font-size:.82rem;}
+
+  .placeholder-tile {
+    background:
+      linear-gradient(135deg, rgba(18,58,102,0.08), rgba(180,135,44,0.10)),
+      repeating-linear-gradient(45deg, rgba(18,58,102,0.05) 0 10px, rgba(18,58,102,0.02) 10px 20px);
   }
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto;}
-    .slide{transition:none;}
+
+  :focus-visible { outline:2px solid #B4872C; outline-offset:2px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .float-slow, html { animation:none !important; scroll-behavior:auto !important; }
   }
 </style>
 </head>
-<body>
+<body class="antialiased">
 
-<!-- ============ HEADER ============ -->
-<header>
-  <div class="nav-wrap">
-    <div class="brand">
-      <img src="images/logo1.jpeg" alt="MKPS Logo" style="height: 45px; width: auto; border-radius: 50%;">
-      <div class="brand-text">
-        <div class="name">Maa Kaushalaya<br>Public School</div>
+<!-- ============ HEADER : STACKED, NON-COLLAPSING ============ -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-primary/10 shadow-[0_1px_0_rgba(18,58,102,0.06)]">
+
+  <!-- ROW 1 : BRANDING -->
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="flex items-center gap-3 py-3">
+      <div class="seal w-11 h-11 shrink-0 rounded-full bg-white border border-primary/10 overflow-hidden flex items-center justify-center">
+        <img src="images/logo2.png" alt="Maa Kaushlaya Public School Logo" class="w-full h-full object-contain p-1 rounded-full">
+      </div>
+      <div class="min-w-0">
+        <p class="font-display text-[17px] sm:text-lg font-semibold text-primary leading-tight truncate">Maa Kaushlaya Public School</p>
+        <p class="text-[11px] sm:text-xs tracking-[0.14em] uppercase text-ink/50 font-medium">Tharbitia &middot; Supaul &middot; CBSE</p>
+      </div>
+      <a href="tel:9771398286" class="ml-auto hidden md:flex items-center gap-2 text-sm font-semibold text-primary hover:text-gold transition-colors shrink-0">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        97713 98286
+      </a>
+    </div>
+  </div>
+
+  <!-- ROW 2 : NAVIGATION — horizontally scrollable, no hamburger, ever -->
+  <nav class="border-t border-primary/10 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex md:justify-center items-center gap-6 md:gap-9 overflow-x-auto whitespace-nowrap scrollbar-hide py-3 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <a href="#home" class="nav-link active shrink-0 text-[13.5px] font-semibold text-ink/70 hover:text-primary transition-colors">Home</a>
+        <a href="#about" class="nav-link shrink-0 text-[13.5px] font-semibold text-ink/70 hover:text-primary transition-colors">About</a>
+        <a href="#academics" class="nav-link shrink-0 text-[13.5px] font-semibold text-ink/70 hover:text-primary transition-colors">Academics</a>
+        <a href="#faculty" class="nav-link shrink-0 text-[13.5px] font-semibold text-ink/70 hover:text-primary transition-colors">Faculty</a>
+        <a href="#fees" class="nav-link shrink-0 text-[13.5px] font-semibold text-ink/70 hover:text-primary transition-colors">Fees</a>
+        <a href="#gallery" class="nav-link shrink-0 text-[13.5px] font-semibold text-ink/70 hover:text-primary transition-colors">Gallery</a>
+        <a href="#admissions" class="nav-link shrink-0 text-[13.5px] font-semibold text-ink/70 hover:text-primary transition-colors">Admissions</a>
+        <a href="#contact" class="nav-link shrink-0 text-[13.5px] font-semibold text-ink/70 hover:text-primary transition-colors">Contact</a>
+        <a href="#admissions" class="shrink-0 order-last ml-2 inline-flex items-center gap-1.5 rounded-full bg-gold/95 text-white text-xs font-bold px-4 py-2 shadow-sm hover:bg-gold-dark transition-colors">
+          <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+          Admission Open
+        </a>
       </div>
     </div>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#academics">Academics</a></li>
-        <li><a href="#facilities">Facilities</a></li>
-        <li><a href="#fees">Fee Structure</a></li>
-        <li><a href="#admissions">Admissions</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-    <a href="#admissions" class="nav-cta">Apply Now</a>
-    <button class="menu-btn" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
-  </div>
+  </nav>
 </header>
 
-<!-- ============ HERO CAROUSEL ============ -->
-<section class="hero" id="home">
-  <div class="slides" id="slides">
-    <!-- Slide 1 with group picture -->
-    <div class="slide active" style="background-image: url('images/group.jpg');"></div>
-    <!-- Slide 2 with group1 picture -->
-    <div class="slide" style="background-image: url('images/group1.jpg');"></div>
-    <!-- Optional extra slides (you can reuse images or add more later) -->
-    <div class="slide" style="background-image: url('images/group.jpeg');"></div>
-    <div class="slide" style="background-image: url('images/group1.jpeg');"></div>
-  </div>
-  <button class="slide-arrow prev" onclick="moveSlide(-1)" aria-label="Previous slide">‹</button>
-  <button class="slide-arrow next" onclick="moveSlide(1)" aria-label="Next slide">›</button>
-  <div class="hero-content">
-    <div class="eyebrow">UDISE-10060301307 · PSS-088/2016 · Est. 2020</div>
-    <h1>Maa Kaushalaya Public School</h1>
-    <p class="tag">Nurturing character, curiosity and confidence — a values-first school built for the children of Tharbitia and the wider Tharbitia community.</p>
-    <div class="hero-btns">
-      <a href="#admissions" class="btn btn-gold">Begin Admission</a>
-      <a href="#fees" class="btn btn-outline">View Fee Structure</a>
+<!-- ============ HERO ============ -->
+<section id="home" class="relative overflow-hidden bg-primary text-white">
+  <img 
+    src="images/group1.jpeg" 
+    alt="School Campus Background" 
+    class="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
+  />
+  <div class="absolute inset-0 bg-gradient-to-br from-primary-dark/95 via-primary-dark/85 to-primary/70 backdrop-blur-[1px]"></div>
+  <div class="absolute inset-0 hero-emblem-grid opacity-25"></div>
+  <div class="absolute -right-24 -top-24 w-96 h-96 rounded-full bg-gold/10 blur-3xl"></div>
+  <div class="absolute -left-20 bottom-0 w-72 h-72 rounded-full bg-emerald/20 blur-3xl"></div>
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6 pt-16 pb-20 sm:pt-24 sm:pb-28">
+    <div class="max-w-2xl">
+      
+      <span class="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.18em] uppercase text-gold bg-white/5 border border-gold/30 rounded-full px-3.5 py-1.5">
+        Session 2026&ndash;27 &middot; Nursery to Class VIII
+      </span>
+      <h1 class="font-display text-4xl sm:text-5xl md:text-[3.4rem] leading-[1.08] font-bold mt-6 text-white">
+        Shaping Minds, Building Character, <span class="text-gold">Inspiring Excellence.</span>
+      </h1>
+      </h1>
+      <p class="mt-5 text-white/75 text-base sm:text-lg leading-relaxed max-w-xl">
+        A CBSE-aligned school in Tharbitia, Supaul, built on disciplined foundations and unhurried care &mdash; so every child moves forward with confidence.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3.5">
+        <a href="#admissions" class="inline-flex items-center gap-2 rounded-md bg-gold hover:bg-gold-dark text-white font-bold text-sm px-6 py-3.5 transition-colors shadow-lg shadow-black/20">
+          Apply for Admission
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#about" class="inline-flex items-center gap-2 rounded-md border border-white/25 hover:border-white/50 text-white font-bold text-sm px-6 py-3.5 transition-colors">
+          About the School
+        </a>
+      </div>
     </div>
   </div>
-  <div class="dots" id="dots"></div>
-</section>
 
-<!-- ============ STAT STRIP ============ -->
-<div class="stat-strip">
-  <div class="container">
-    <div class="stat"><b>500+</b><span>Students</span></div>
-    <div class="stat"><b>30+</b><span>Educators</span></div>
-    <div class="stat"><b>Nur–VIII</b><span>Classes Offered</span></div>
-    <div class="stat"><b>CBSE</b><span>Affiliation Pattern</span></div>
-  </div>
-</div>
-<div class="scallop on-cream" style="background-color:var(--maroon);"></div>
-
-<!-- ============ ABOUT ============ -->
-<section id="about">
-  <div class="container about-grid">
-    <div class="about-img">
-      <img src="images/group1.jpeg" alt="Maa Kaushalaya Public School Students" style="width: 100%; height: 100%; object-fit: cover;">
-    </div>
-    <div class="about-text">
-      <div class="eyebrow">About Our School</div>
-      <h2>A new school, built on old-fashioned values</h2>
-      <p>Maa Kaushalaya Public School is located in Tharbitia and offers a structured, discipline-led education from Nursery through the middle grades. Our approach combines a strong academic foundation with attention to each child's discipline, character and co-curricular growth.</p>
-      <p>We follow a CBSE-aligned curriculum delivered through smart classrooms, regular assessment, and a low student-teacher ratio that lets every child be known by name.</p>
-      <div class="founder-line">
-        <div><b>Tharbitia Campus</b><span>Main school building &amp; grounds</span></div>
-        <div><b>Nursery – Class VIII</b><span>Current academic scope</span></div>
-        <div><b>English Medium</b><span>CBSE-pattern curriculum</span></div>
+  <!-- Stats banner -->
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6 pb-14 sm:pb-0 sm:translate-y-1/2">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-5 bg-white rounded-2xl shadow-xl shadow-primary-dark/20 p-4 sm:p-6 border border-primary/5">
+      <div class="text-center sm:text-left px-2 py-3 sm:py-0 sm:border-r border-primary/10">
+        <p class="font-display text-3xl sm:text-4xl font-semibold text-primary">7+</p>
+        <p class="text-xs sm:text-[13px] text-ink/55 font-semibold mt-1">Years of Legacy</p>
+      </div>
+      <div class="text-center sm:text-left px-2 py-3 sm:py-0 sm:border-r border-primary/10">
+        <p class="font-display text-3xl sm:text-4xl font-semibold text-primary">20</p>
+        <p class="text-xs sm:text-[13px] text-ink/55 font-semibold mt-1">Faculty Members</p>
+      </div>
+      <div class="text-center sm:text-left px-2 py-3 sm:py-0 sm:border-r border-primary/10">
+        <p class="font-display text-3xl sm:text-4xl font-semibold text-primary">CBSE</p>
+        <p class="text-xs sm:text-[13px] text-ink/55 font-semibold mt-1">Affiliated Course</p>
+      </div>
+      <div class="text-center sm:text-left px-2 py-3 sm:py-0">
+        <p class="font-display text-3xl sm:text-4xl font-semibold text-primary">1&ndash;8</p>
+        <p class="text-xs sm:text-[13px] text-ink/55 font-semibold mt-1">Classes Offered</p>
       </div>
     </div>
   </div>
 </section>
 
-<div class="scallop" style="background-color:var(--ivory);"></div>
-
-<!-- ============ WHY CHOOSE US ============ -->
-<section class="why-bg">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow">Why Families Choose Us</div>
-      <h2>Built around every child's growth</h2>
-      <div class="rule"></div>
+<!-- ============ WELCOME ============ -->
+<section id="about" class="max-w-6xl mx-auto px-4 sm:px-6 pt-24 sm:pt-40 pb-20">
+  <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+    <div>
+      <span class="text-[11px] font-bold tracking-[0.18em] uppercase text-emerald">Welcome to MKPS</span>
+      <h2 class="font-display text-3xl sm:text-[2.6rem] font-semibold text-primary leading-[1.12] mt-3">
+        Nurturing Minds, Inspiring Futures.
+      </h2>
+      <p class="text-ink/60 mt-4 leading-relaxed">
+        Every classroom at Maa Kaushlaya is designed around one idea: children rise to the standards set around them. We pair CBSE rigor with attentive, personal mentorship.
+      </p>
+      <ul class="mt-7 grid sm:grid-cols-2 gap-x-6 gap-y-4">
+        <li class="flex items-start gap-2.5">
+          <span class="mt-0.5 w-5 h-5 rounded-full bg-emerald-tint text-emerald flex items-center justify-center shrink-0">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+          </span>
+          <span class="text-sm font-semibold text-ink/80">English Medium</span>
+        </li>
+        <li class="flex items-start gap-2.5">
+          <span class="mt-0.5 w-5 h-5 rounded-full bg-emerald-tint text-emerald flex items-center justify-center shrink-0">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+          </span>
+          <span class="text-sm font-semibold text-ink/80">CBSE Course</span>
+        </li>
+        <li class="flex items-start gap-2.5">
+          <span class="mt-0.5 w-5 h-5 rounded-full bg-emerald-tint text-emerald flex items-center justify-center shrink-0">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+          </span>
+          <span class="text-sm font-semibold text-ink/80">Residential Facility</span>
+        </li>
+        <li class="flex items-start gap-2.5">
+          <span class="mt-0.5 w-5 h-5 rounded-full bg-emerald-tint text-emerald flex items-center justify-center shrink-0">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+          </span>
+          <span class="text-sm font-semibold text-ink/80">Modern Classrooms</span>
+        </li>
+        <li class="flex items-start gap-2.5">
+          <span class="mt-0.5 w-5 h-5 rounded-full bg-emerald-tint text-emerald flex items-center justify-center shrink-0">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+          </span>
+          <span class="text-sm font-semibold text-ink/80">Qualified Faculty</span>
+        </li>
+        <li class="flex items-start gap-2.5">
+          <span class="mt-0.5 w-5 h-5 rounded-full bg-emerald-tint text-emerald flex items-center justify-center shrink-0">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+          </span>
+          <span class="text-sm font-semibold text-ink/80">Transport Available</span>
+        </li>
+      </ul>
     </div>
-    <div class="why-grid">
-      <div class="why-card">
-        <div class="why-icon">✎</div>
-        <h4>Low Student–Teacher Ratio</h4>
-        <p>Small class sizes so every child gets individual attention from trained educators.</p>
+
+    <div class="relative">
+      <!-- Image Container Frame -->
+      <div class="aspect-[4/5] rounded-2xl border border-primary/10 overflow-hidden shadow-md bg-white">
+        <img src="images/director.jpeg" alt="Director Ram Sagar Kumar" class="w-full h-full object-cover">
       </div>
-      <div class="why-card">
-        <div class="why-icon">🛡</div>
-        <h4>Safe, Disciplined Campus</h4>
-        <p>Secure premises with CCTV monitoring, trained staff and a clear code of conduct.</p>
+    
+      <!-- Left Badge: Govt Registration (Your Existing Badge) -->
+      <div class="absolute -bottom-5 -left-5 hidden sm:block bg-white rounded-xl shadow-lg border border-primary/5 px-5 py-4">
+        <p class="font-display text-2xl font-semibold text-emerald">Govt. Regd.</p>
+        <p class="text-[11px] font-semibold text-ink/50 uppercase tracking-wide">PSS&ndash;088/2016</p>
       </div>
-      <div class="why-card">
-        <div class="why-icon">📘</div>
-        <h4>CBSE-Aligned Curriculum</h4>
-        <p>Structured syllabus, regular assessments and progress reports for parents.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-icon">🎭</div>
-        <h4>Co-Curricular Focus</h4>
-        <p>Sports, art, music and cultural events alongside academics, all year round.</p>
+    
+      <!-- Right Badge: NEW Director Name Badge -->
+      <div class="absolute -bottom-5 -right-5 bg-white rounded-xl shadow-lg border border-primary/5 px-5 py-4 text-right">
+        <p class="text-[11px] font-bold uppercase tracking-wider text-gold">Director</p>
+        <p class="font-display text-xl sm:text-2xl font-semibold text-primary mt-0.5">Ram Sagar Kumar</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ ACADEMICS ============ -->
-<section id="academics">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow">Academic Programs</div>
-      <h2>A clear path from Nursery to Class VIII</h2>
-      <div class="rule"></div>
+<!-- ============ FOUR PILLARS ============ -->
+<section id="academics" class="bg-primary-tint/40 border-y border-primary/5">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-20">
+    <div class="max-w-xl mx-auto text-center">
+      <span class="text-[11px] font-bold tracking-[0.18em] uppercase text-gold">Our Approach</span>
+      <h2 class="font-display text-3xl sm:text-4xl font-semibold text-primary mt-3">The Four Pillars</h2>
     </div>
-    <div class="acad-grid">
-      <div class="acad-card">
-        <div class="acad-top"><div class="eyebrow">Foundation</div><h4>Pre-Primary</h4></div>
-        <div class="acad-body">
-          <ul>
-            <li>Nursery, LKG, UKG</li>
-            <li>Play-based learning</li>
-            <li>Phonics &amp; motor skills</li>
-            <li>Story-telling &amp; art</li>
-          </ul>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-12">
+      <div class="bg-white rounded-2xl p-6 border border-primary/5 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
+        <div class="w-11 h-11 rounded-full bg-primary-tint text-primary flex items-center justify-center mb-4">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
         </div>
+        <h3 class="font-display text-xl font-semibold text-primary">Learn</h3>
+        <p class="text-sm text-ink/55 mt-2 leading-relaxed">A CBSE-mapped curriculum delivered by teachers who explain the "why", not just the "what".</p>
       </div>
-      <div class="acad-card">
-        <div class="acad-top"><div class="eyebrow">Primary</div><h4>Class I – V</h4></div>
-        <div class="acad-body">
-          <ul>
-            <li>English, Hindi, Maths</li>
-            <li>EVS &amp; General Science</li>
-            <li>Computer literacy</li>
-            <li>Weekly assessments</li>
-          </ul>
+      <div class="bg-white rounded-2xl p-6 border border-primary/5 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
+        <div class="w-11 h-11 rounded-full bg-emerald-tint text-emerald flex items-center justify-center mb-4">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M2 12h20"/><path d="M7 7l10 10M17 7L7 17"/></svg>
         </div>
+        <h3 class="font-display text-xl font-semibold text-primary">Grow</h3>
+        <p class="text-sm text-ink/55 mt-2 leading-relaxed">Sports, art and co-curricular time each week build character alongside the report card.</p>
       </div>
-      <div class="acad-card">
-        <div class="acad-top"><div class="eyebrow">Middle</div><h4>Class VI – VIII</h4></div>
-        <div class="acad-body">
-          <ul>
-            <li>Science &amp; Mathematics</li>
-            <li>Social Science</li>
-            <li>Second/third language</li>
-            <li>Project-based learning</li>
-          </ul>
+      <div class="bg-white rounded-2xl p-6 border border-primary/5 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
+        <div class="w-11 h-11 rounded-full bg-gold-tint text-gold flex items-center justify-center mb-4">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2c-2 4-6 5-6 10a6 6 0 0 0 12 0c0-5-4-6-6-10z"/></svg>
         </div>
+        <h3 class="font-display text-xl font-semibold text-primary">Bloom</h3>
+        <p class="text-sm text-ink/55 mt-2 leading-relaxed">Small class sizes mean every child is noticed, encouraged, and given room to open up.</p>
       </div>
-      <div class="acad-card">
-        <div class="acad-top"><div class="eyebrow">Beyond Class</div><h4>Co-Curricular</h4></div>
-        <div class="acad-body">
-          <ul>
-            <li>Sports &amp; yoga periods</li>
-            <li>Art, craft &amp; music</li>
-            <li>Annual function</li>
-            <li>Inter-house competitions</li>
-          </ul>
+      <div class="bg-white rounded-2xl p-6 border border-primary/5 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
+        <div class="w-11 h-11 rounded-full bg-primary-tint text-primary flex items-center justify-center mb-4">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/><path d="M8.5 13.5L6 22l6-3 6 3-2.5-8.5"/></svg>
         </div>
+        <h3 class="font-display text-xl font-semibold text-primary">Succeed</h3>
+        <p class="text-sm text-ink/55 mt-2 leading-relaxed">Steady assessment and mentoring prepare each student for the class ahead &mdash; and beyond.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ FACILITIES ============ -->
-<section class="fac-bg" id="facilities">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow">Campus Facilities</div>
-      <h2>Everything a growing student needs</h2>
-      <div class="rule"></div>
+<!-- ============ FACULTY strip (kept light, supports nav anchor) ============ -->
+<section id="faculty" class="max-w-6xl mx-auto px-4 sm:px-6 py-20">
+  <div class="grid md:grid-cols-3 gap-8 items-center">
+    <div class="md:col-span-1">
+      <span class="text-[11px] font-bold tracking-[0.18em] uppercase text-emerald">Our Faculty</span>
+      <h2 class="font-display text-3xl font-semibold text-primary mt-3 leading-tight">Teachers who stay close to every child's progress.</h2>
     </div>
-  </div>
-  <div class="container">
-    <div class="fac-grid">
-      <div class="fac-item"><h4>📚 Library</h4><p>A dedicated reading room stocked with age-appropriate books and reference material.</p></div>
-      <div class="fac-item"><h4>🔬 Science &amp; Computer Lab</h4><p>Hands-on lab sessions and computer literacy classes from an early age.</p></div>
-      <div class="fac-item"><h4>🏸 Sports Ground</h4><p>Open playground for athletics, yoga periods and inter-house sports.</p></div>
-      <div class="fac-item"><h4>🚌 Transport</h4><p>Supervised school transport covering Tharbitia and nearby localities.</p></div>
-      <div class="fac-item"><h4>🩺 First-Aid &amp; Care</h4><p>On-campus first-aid facility and a trained attendant for emergencies.</p></div>
-      <div class="fac-item"><h4>🖥️ Smart Classrooms</h4><p>Digital teaching aids used alongside traditional blackboard instruction.</p></div>
+    <div class="md:col-span-2 grid sm:grid-cols-3 gap-4">
+      <div class="bg-white rounded-xl border border-primary/5 p-5 text-center shadow-sm">
+        <div class="w-16 h-16 mx-auto rounded-full placeholder-tile"></div>
+      
+        <p class="text-sm font-semibold text-primary mt-1">Principal</p>
+      </div>
+      <div class="bg-white rounded-xl border border-primary/5 p-5 text-center shadow-sm">
+        <div class="w-16 h-16 mx-auto rounded-full placeholder-tile"></div>
+        <p class="text-xs font-bold text-ink/40 uppercase tracking-wide mt-3">Add photo</p>
+        <p class="text-sm font-semibold text-primary mt-1">Vice Principal</p>
+      </div>
+      <div class="bg-white rounded-xl border border-primary/5 p-5 text-center shadow-sm">
+        <div class="w-16 h-16 mx-auto rounded-full placeholder-tile"></div>
+        <p class="text-xs font-bold text-ink/40 uppercase tracking-wide mt-3">Add photo</p>
+        <p class="text-sm font-semibold text-primary mt-1">Senior Faculty</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ FEE STRUCTURE ============ -->
-<section id="fees">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow">Fee Structure</div>
-      <h2>Admission &amp; Monthly Fee Structure</h2>
-      <div class="rule"></div>
+<!-- ============ FEES (light section to support nav anchor + admissions flow) ============ -->
+<section id="fees" class="bg-primary-tint/40 border-y border-primary/5">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-20">
+    <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+      <div class="max-w-xl">
+        <span class="text-[11px] font-bold tracking-[0.18em] uppercase text-gold">Fee Structure</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-semibold text-primary mt-3">Transparent, session-wise fees.</h2>
+        <p class="text-ink/55 mt-3 text-sm leading-relaxed">Admission &amp; monthly fee structure for Session 2026&ndash;27.</p>
+      </div>
+      <div class="shrink-0 bg-primary text-white rounded-2xl px-6 py-5 text-center shadow-sm">
+        <p class="text-[11px] font-bold uppercase tracking-wide text-gold-tint">Admission &amp; Registration Fee</p>
+        <p class="font-display text-3xl font-semibold mt-1.5">&#8377;4,500</p>
+        <p class="text-[11px] text-white/60 font-semibold mt-0.5">One Time</p>
+      </div>
     </div>
 
-    <div class="fee-table-wrap">
-      <table class="fee-table">
-        <thead><tr><th>Fee Head</th><th>Frequency</th><th>Amount (₹)</th></tr></thead>
-        <tbody>
-          <tr class="fee-group-row"><td colspan="3">One-Time</td></tr>
-          <tr><td>Admission &amp; Registration Fee</td><td>One Time</td><td>4,500</td></tr>
-
-          <tr class="fee-group-row"><td colspan="3">Monthly Tuition Fee</td></tr>
-          <tr><td>Nursery</td><td>Monthly</td><td>800</td></tr>
-          <tr><td>LKG</td><td>Monthly</td><td>900</td></tr>
-          <tr><td>UKG</td><td>Monthly</td><td>1,000</td></tr>
-          <tr><td>Class 1</td><td>Monthly</td><td>1,000</td></tr>
-          <tr><td>Class 2</td><td>Monthly</td><td>1,100</td></tr>
-          <tr><td>Class 3</td><td>Monthly</td><td>1,200</td></tr>
-          <tr><td>Class 4</td><td>Monthly</td><td>1,300</td></tr>
-          <tr><td>Class 5</td><td>Monthly</td><td>1,400</td></tr>
-          <tr><td>Class 6</td><td>Monthly</td><td>1,500</td></tr>
-          <tr><td>Class 7</td><td>Monthly</td><td>1,600</td></tr>
-          <tr><td>Class 8</td><td>Monthly</td><td>1,700</td></tr>
-          <tr><td>Navodaya &amp; Competition Class</td><td>Monthly</td><td>1,500</td></tr>
-
-          <tr class="fee-group-row"><td colspan="3">Computer Class</td></tr>
-          <tr><td>Class 1 – 5</td><td>Monthly</td><td>200</td></tr>
-          <tr><td>Class 6 – 8</td><td>Monthly</td><td>300</td></tr>
-
-          <tr class="fee-group-row"><td colspan="3">Yearly Charges</td></tr>
-          <tr><td>Stationery (School Diary, ID Card)</td><td>Yearly</td><td>300</td></tr>
-          <tr><td>Examination Fee — Class 1 to 5</td><td>Yearly</td><td>1,200</td></tr>
-          <tr><td>Examination Fee — Class 6 to 8</td><td>Yearly</td><td>1,500</td></tr>
+    <!-- Monthly fee table -->
+    <div class="mt-8 overflow-x-auto bg-white rounded-2xl border border-primary/5 shadow-sm">
+      <table class="w-full text-sm min-w-[420px]">
+        <thead>
+          <tr class="text-left text-[11px] font-bold uppercase tracking-wide text-ink/45 border-b border-primary/10">
+            <th class="px-6 py-4">Class</th>
+            <th class="px-6 py-4">Monthly Fee</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-primary/5">
+          <tr><td class="px-6 py-4 font-semibold text-primary">Nursery</td><td class="px-6 py-4 text-ink/60">&#8377;800</td></tr>
+          <tr><td class="px-6 py-4 font-semibold text-primary">LKG</td><td class="px-6 py-4 text-ink/60">&#8377;900</td></tr>
+          <tr><td class="px-6 py-4 font-semibold text-primary">UKG</td><td class="px-6 py-4 text-ink/60">&#8377;1,000</td></tr>
+          <tr><td class="px-6 py-4 font-semibold text-primary">Class 1</td><td class="px-6 py-4 text-ink/60">&#8377;1,000</td></tr>
+          <tr><td class="px-6 py-4 font-semibold text-primary">Class 2</td><td class="px-6 py-4 text-ink/60">&#8377;1,100</td></tr>
+          <tr><td class="px-6 py-4 font-semibold text-primary">Class 3</td><td class="px-6 py-4 text-ink/60">&#8377;1,200</td></tr>
+          <tr><td class="px-6 py-4 font-semibold text-primary">Class 4</td><td class="px-6 py-4 text-ink/60">&#8377;1,300</td></tr>
+          <tr><td class="px-6 py-4 font-semibold text-primary">Class 5</td><td class="px-6 py-4 text-ink/60">&#8377;1,400</td></tr>
+          <tr><td class="px-6 py-4 font-semibold text-primary">Class 6</td><td class="px-6 py-4 text-ink/60">&#8377;1,500</td></tr>
+          <tr><td class="px-6 py-4 font-semibold text-primary">Class 7</td><td class="px-6 py-4 text-ink/60">&#8377;1,600</td></tr>
+          <tr><td class="px-6 py-4 font-semibold text-primary">Class 8</td><td class="px-6 py-4 text-ink/60">&#8377;1,700</td></tr>
+          <tr><td class="px-6 py-4 font-semibold text-primary">Navodaya &amp; Competition Class</td><td class="px-6 py-4 text-ink/60">&#8377;1,500</td></tr>
         </tbody>
       </table>
     </div>
 
-    <div class="fee-note">
-      Fees are payable monthly by the 10th of each month. The Admission &amp; Registration Fee is charged once at the time of enrolment. Transport fee, where applicable, is charged separately based on distance/route.
+    <!-- Additional charges -->
+    <div class="mt-6 grid sm:grid-cols-2 gap-4">
+      <div class="bg-white rounded-2xl border border-primary/5 shadow-sm overflow-hidden">
+        <p class="px-6 pt-5 pb-3 text-[11px] font-bold uppercase tracking-wide text-ink/45">Computer Class (Monthly)</p>
+        <div class="divide-y divide-primary/5 text-sm">
+          <div class="flex justify-between px-6 py-3.5"><span class="font-semibold text-primary">Class 1 &ndash; 5</span><span class="text-ink/60">&#8377;200</span></div>
+          <div class="flex justify-between px-6 py-3.5"><span class="font-semibold text-primary">Class 6 &ndash; 8</span><span class="text-ink/60">&#8377;300</span></div>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-primary/5 shadow-sm overflow-hidden">
+        <p class="px-6 pt-5 pb-3 text-[11px] font-bold uppercase tracking-wide text-ink/45">Yearly Charges</p>
+        <div class="divide-y divide-primary/5 text-sm">
+          <div class="flex justify-between px-6 py-3.5"><span class="font-semibold text-primary">Stationary (School Diary, ID Card)</span><span class="text-ink/60">&#8377;300</span></div>
+          <div class="flex justify-between px-6 py-3.5"><span class="font-semibold text-primary">Examination Fee (Class 1 &ndash; 5)</span><span class="text-ink/60">&#8377;1,200</span></div>
+          <div class="flex justify-between px-6 py-3.5"><span class="font-semibold text-primary">Examination Fee (Class 6 &ndash; 8)</span><span class="text-ink/60">&#8377;1,500</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="scallop flip" style="background-color:var(--navy);"></div>
-
-<!-- ============ ADMISSIONS ============ -->
-<section id="admissions" style="background:var(--navy); color:var(--ivory);">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow" style="color:var(--gold-soft);">Admissions</div>
-      <h2 style="color:var(--ivory);">How to enrol your child</h2>
-      <div class="rule"></div>
-      <p style="color:#C7D2DE;">Admissions for the upcoming session are open for Nursery through Class VIII.</p>
+<!-- ============ GLIMPSES / GALLERY PREVIEW ============ -->
+<section id="gallery" class="max-w-6xl mx-auto px-4 sm:px-6 py-20">
+  <div class="flex items-end justify-between mb-8">
+    <div>
+      <span class="text-[11px] font-bold tracking-[0.18em] uppercase text-emerald">Campus Life</span>
+      <h2 class="font-display text-3xl sm:text-4xl font-semibold text-primary mt-3">Glimpses of MKPS</h2>
     </div>
-    <div class="steps">
-      <div class="step"><span class="num">01</span><h4>Enquiry</h4><p>Visit the campus in Tharbitia or call the school office to enquire about seat availability.</p></div>
-      <div class="step"><span class="num">02</span><h4>Form &amp; Documents</h4><p>Collect the admission form and submit birth certificate, previous marksheet and photographs.</p></div>
-      <div class="step"><span class="num">03</span><h4>Interaction</h4><p>A short, age-appropriate interaction with the child and parents at the school.</p></div>
-      <div class="step"><span class="num">04</span><h4>Confirmation</h4><p>Pay the admission fee to confirm the seat and receive the fee &amp; uniform schedule.</p></div>
+    <a href="#gallery" class="text-sm font-bold text-primary hover:text-gold transition-colors whitespace-nowrap ml-4">View gallery &rarr;</a>
+  </div>
+
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-3.5 auto-rows-[130px] sm:auto-rows-[160px]">
+   <div class="col-span-1 row-span-2 rounded-xl placeholder-tile border border-primary/5">
+    <img src="images/mks6.jpeg" alt="frontentrance" class="w-full h-full object-cover">
+  </div>
+    <div class="col-span-1 row-span-1 rounded-xl placeholder-tile border border-primary/5">
+    <img src="images/mks5.jpeg" alt="frontentrance" class="w-full h-full object-cover">
+  </div>
+    <div class="col-span-1 row-span-1 rounded-xl placeholder-tile border border-primary/5">
+    <img src="images/mks4.jpeg" alt="frontentrance" class="w-full h-full object-cover">
+  </div>
+    <div class="col-span-1 row-span-2 rounded-xl placeholder-tile border border-primary/5">
+    <img src="images/mks3.jpeg" alt="frontentrance" class="w-full h-full object-cover">
+  </div>
+    <div class="col-span-1 row-span-1 rounded-xl placeholder-tile border border-primary/5">
+    <img src="images/mks2.jpeg" alt="frontentrance" class="w-full h-full object-cover">
+  </div>
+    <div class="col-span-1 row-span-1 rounded-xl placeholder-tile border border-primary/5">
+    <img src="images/mks1.jpeg" alt="frontentrance" class="w-full h-full object-cover">
+  </div>
+    
+  </div>
+</section>
+
+<!-- ============ ADMISSIONS CTA STRIP ============ -->
+<section id="admissions" class="relative overflow-hidden bg-emerald-dark text-white ruled-bg">
+  <div class="absolute inset-0 bg-gradient-to-r from-emerald-dark via-emerald to-emerald-dark opacity-95"></div>
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6 py-14 sm:py-16 flex flex-col md:flex-row items-center md:items-center justify-between gap-8 text-center md:text-left">
+    <div class="max-w-lg">
+      <span class="inline-block text-[11px] font-bold tracking-[0.18em] uppercase text-gold-tint bg-white/10 rounded-full px-3.5 py-1.5">Limited Seats</span>
+      <h2 class="font-display text-2xl sm:text-3xl font-semibold mt-4 leading-tight">Admissions for Session 2026&ndash;27 are now open.</h2>
+      <p class="text-white/70 text-sm mt-2">Call our admissions desk to book a campus visit or begin the application.</p>
+    </div>
+    <div class="flex flex-col sm:flex-row gap-3 shrink-0">
+      <a href="tel:9771398286" class="inline-flex items-center justify-center gap-2 rounded-md bg-white text-emerald-dark font-bold text-sm px-6 py-3.5 hover:bg-gold-tint transition-colors">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call 97713 98286
+      </a>
+      <a href="tel:7808126201" class="inline-flex items-center justify-center gap-2 rounded-md border border-white/40 hover:bg-white/10 text-white font-bold text-sm px-6 py-3.5 transition-colors">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call 78081 26201
+      </a>
     </div>
   </div>
 </section>
 
-<!-- ============ CONTACT ============ -->
-<section id="contact">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow">Get in Touch</div>
-      <h2>Visit or contact the campus</h2>
-      <div class="rule"></div>
+<!-- ============ CONTACT (supports nav anchor, lightweight, feeds footer) ============ -->
+<section id="contact" class="max-w-6xl mx-auto px-4 sm:px-6 py-20">
+  <div class="grid md:grid-cols-2 gap-10 items-start">
+    <div>
+      <span class="text-[11px] font-bold tracking-[0.18em] uppercase text-gold">Get in Touch</span>
+      <h2 class="font-display text-3xl sm:text-4xl font-semibold text-primary mt-3">Visit or write to us.</h2>
+      <div class="mt-6 space-y-4 text-sm text-ink/65">
+        <p class="flex gap-3"><svg class="shrink-0 mt-0.5" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B4872C" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Maa Kaushlaya Public School, Tharbitia, Supaul, Bihar</p>
+        <p class="flex gap-3"><svg class="shrink-0 mt-0.5" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B4872C" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 97713 98286 &middot; 78081 26201</p>
+        <p class="flex gap-3"><svg class="shrink-0 mt-0.5" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B4872C" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg> info@maakaushlayaschool.edu.in</p>
+      </div>
     </div>
-    <div class="contact-grid">
-      <div class="contact-info">
-        <h3>Maa Kaushalaya Public School</h3>
-        <div class="c-row">
-          <div class="c-ico">📍</div>
-          <div><b>Address</b><span>Tharbitia, Tharbitia, Supaul, Bihar</span></div>
-        </div>
-        <div class="c-row">
-          <div class="c-ico">☎</div>
-          <div><b>Phone</b><span>+91 9771398286</span></div>
-        </div>
-        <div class="c-row">
-          <div class="c-ico">✉</div>
-          <div><b>Email</b><span>mkps.tharbitia.01@gmail.com</span></div>
-        </div>
-        <div class="c-row">
-          <div class="c-ico">🕐</div>
-          <div><b>Office Hours</b><span>Mon – Sat, 8:00 AM – 2:00 PM</span></div>
-        </div>
-      </div>
-       <div class="map-box" style="padding:0; background:none;">
-        <iframe
-          src="https://www.google.com/maps?q=MAA+KAUSHLYA+PUBLIC+SCHOOL,+THARBITIA,26.2181682,86.6691323&z=17&output=embed"
-          width="100%" height="100%" style="min-height:340px; border:0;"
-          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-          title="Maa Kaushalaya Public School location on Google Maps">
-        </iframe>
-      </div>
+    <div class="aspect-video rounded-2xl overflow-hidden border border-primary/10 bg-primary-tint/40">
+      <iframe
+        title="Maa Kaushlaya Public School location map"
+        src="https://www.google.com/maps?q=MAA+KAUSHLYA+PUBLIC+SCHOOL,+THARBITIA,+Station+Rd,+Bihar&output=embed"
+        class="w-full h-full border-0"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
     </div>
   </div>
 </section>
 
 <!-- ============ FOOTER ============ -->
-<footer>
-  <div class="container">
-    <div class="foot-grid">
+<footer class="bg-primary-dark text-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 pt-16 pb-10">
+    <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-10">
       <div>
-        <div class="foot-brand">
-      <img src="images/logo1.jpeg" alt="MKPS Logo" style="height: 45px; width: auto; border-radius: 50%;">
-      <div class="brand-text">
-        <div class="name">Maa Kaushalaya<br>Public School</div>
+        <div class="flex items-center gap-2.5">
+          <div class="seal w-11 h-11 shrink-0 rounded-full bg-white border border-primary/10 overflow-hidden flex items-center justify-center">
+            <img src="images/logo2.png" alt="Maa Kaushlaya Public School Logo" class="w-full h-full object-contain p-1 rounded-full">
+          </div>
+          <p class="font-display font-semibold text-base">Maa Kaushlaya<br>Public School</p>
+        </div>
+        <p class="text-white/50 text-sm mt-4 leading-relaxed">Where budding children learn, grow, bloom &amp; succeed &mdash; together.</p>
+      </div>
+      <div>
+        <p class="text-xs font-bold uppercase tracking-wide text-gold-tint">Address</p>
+        <p class="text-white/60 text-sm mt-4 leading-relaxed">Maa Kaushlaya Public School<br> Station Road <br>Tharbitia, Bihar-852138</p>
+      </div>
+      <div>
+        <p class="text-xs font-bold uppercase tracking-wide text-gold-tint">Contact</p>
+        <p class="text-white/60 text-sm mt-4 leading-relaxed">
+          97713 98286<br>
+          78081 26201<br>
+          mkps.tharbitia.01@gmail.com
+        </p>
+      </div>
+      <div>
+        <p class="text-xs font-bold uppercase tracking-wide text-gold-tint">Quick Links</p>
+        <ul class="text-white/60 text-sm mt-4 space-y-2.5">
+          <li><a href="#about" class="hover:text-white transition-colors">About the School</a></li>
+          <li><a href="#academics" class="hover:text-white transition-colors">Academics</a></li>
+          <li><a href="#fees" class="hover:text-white transition-colors">Fee Structure</a></li>
+          <li><a href="#admissions" class="hover:text-white transition-colors">Admissions</a></li>
+        </ul>
       </div>
     </div>
-        <p>A CBSE-pattern school in Tharbitia, dedicated to disciplined, values-based education from Nursery to Class VIII.</p>
-      </div>
-      <div>
-        <h4>Quick Links</h4>
-        <a href="#about" style="display:block;">About Us</a>
-        <a href="#academics" style="display:block;">Academics</a>
-        <a href="#fees" style="display:block;">Fee Structure</a>
-        <a href="#admissions" style="display:block;">Admissions</a>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <p>Tharbitia, Tharbitia<br>Supaul, Bihar</p>
-        <p>+91 9771398286, +917808126201<br>mkps.tharbitia.01@gmail.com</p>
-      </div>
+
+    <div class="border-t border-white/10 mt-12 pt-6 flex flex-col sm:flex-row gap-3 items-center justify-between">
+      <p class="text-white/40 text-xs">&copy; 2026 Maa Kaushlaya Public School. All rights reserved.</p>
+      <p class="text-white/40 text-xs">Govt. Regd. PSS-088/2016 &middot; UDISE 10060301307</p>
     </div>
-    <div class="foot-bottom">© 2026 Maa Kaushalaya Public School, Tharbitia. All rights reserved.</div>
   </div>
 </footer>
-
-<script>
-  // Hero carousel
-  const slides = document.querySelectorAll('.slide');
-  const dotsWrap = document.getElementById('dots');
-  let current = 0;
-  slides.forEach((_, i) => {
-    const d = document.createElement('div');
-    d.className = 'dot' + (i === 0 ? ' active' : '');
-    d.onclick = () => goToSlide(i);
-    dotsWrap.appendChild(d);
-  });
-  const dots = document.querySelectorAll('.dot');
-
-  function goToSlide(i){
-    slides[current].classList.remove('active');
-    dots[current].classList.remove('active');
-    current = (i + slides.length) % slides.length;
-    slides[current].classList.add('active');
-    dots[current].classList.add('active');
-  }
-  function moveSlide(dir){ goToSlide(current + dir); }
-  let autoplay = setInterval(() => moveSlide(1), 5500);
-  document.querySelector('.hero').addEventListener('mouseenter', () => clearInterval(autoplay));
-  document.querySelector('.hero').addEventListener('mouseleave', () => { autoplay = setInterval(() => moveSlide(1), 5500); });
-
-</script>
 
 </body>
 </html>
