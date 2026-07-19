@@ -555,6 +555,135 @@
     </div>
   </div>
 </footer>
+<!-- ========================================== -->
+<!--   STICKY ADMISSION BUTTON & MODAL FORM    -->
+<!-- ========================================== -->
 
+<!-- 1. Sticky Vertical Floating Button -->
+<button id="openAdmissionModal" class="fixed right-0 top-1/2 -translate-y-1/2 z-50 bg-gold hover:bg-gold-dark text-slate-950 font-extrabold uppercase text-[11px] tracking-widest py-5 px-3.5 rounded-l-xl shadow-2xl transition-all duration-300 hover:pl-5 flex items-center gap-2 border-l border-y border-white/20 select-none focus:outline-none" style="writing-mode: vertical-rl; text-orientation: mixed;">
+  <svg class="w-3.5 h-3.5 transform -rotate-90 mb-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+    <path d="M5 12h14M13 5l7 7-7 7"/>
+  </svg>
+  Online Admission Form
+</button>
+
+<!-- 2. Modal Overlay Container -->
+<div id="admissionModal" class="fixed inset-0 z-50 hidden opacity-0 items-center justify-center p-4 bg-slate-950/70 backdrop-blur-md transition-all duration-300">
+  
+  <!-- Form Card Box (Styled to match your deep blue theme) -->
+  <div class="relative bg-[#0B2748] w-full max-w-lg rounded-2xl border border-white/10 shadow-2xl overflow-hidden max-h-[90vh] flex flex-col transform scale-95 transition-transform duration-300" id="modalContainer">
+    
+    <!-- Modal Header -->
+    <div class="bg-gradient-to-r from-[#0B2748] to-[#12365F] px-6 py-5 border-b border-white/10 flex items-center justify-between">
+      <div>
+        <span class="text-[10px] font-bold text-gold tracking-widest uppercase bg-gold/10 px-2 py-0.5 rounded">Session 2026–27</span>
+        <h3 class="text-xl font-bold text-white mt-1">Admission Inquiry Form</h3>
+      </div>
+      <button id="closeAdmissionModal" class="text-white/60 hover:text-white p-1.5 rounded-full hover:bg-white/10 transition-colors">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <!-- Modal Form Body (Change action URL below to your form handler endpoint) -->
+    <form action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST" class="p-6 overflow-y-auto space-y-4 flex-1 custom-scrollbar">
+      
+      <!-- Anti-Spam Honeypot Field -->
+      <input type="text" name="_gotcha" style="display:none">
+
+      <!-- Student Name Input -->
+      <div>
+        <label class="block text-xs font-bold text-white/70 uppercase tracking-wide mb-1.5">Student's Full Name *</label>
+        <input type="text" name="student_name" required class="w-full bg-white/5 border border-white/15 focus:border-gold rounded-lg px-4 py-2.5 text-white placeholder-white/30 text-sm focus:outline-none focus:ring-1 focus:ring-gold transition-all" placeholder="Enter full name">
+      </div>
+
+      <!-- Grid for Class Selection & Mobile -->
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-xs font-bold text-white/70 uppercase tracking-wide mb-1.5">Seeking Admission For *</label>
+          <select name="target_class" required class="w-full bg-slate-900 border border-white/15 focus:border-gold rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:ring-1 focus:ring-gold transition-all">
+            <option value="" disabled selected class="text-white/30">Select Class</option>
+            <option value="Nursery">Nursery</option>
+            <option value="LKG">LKG</option>
+            <option value="UKG">UKG</option>
+            <option value="Class 1">Class 1</option>
+            <option value="Class 2">Class 2</option>
+            <option value="Class 3">Class 3</option>
+            <option value="Class 4">Class 4</option>
+            <option value="Class 5">Class 5</option>
+            <option value="Class 6">Class 6</option>
+            <option value="Class 7">Class 7</option>
+            <option value="Class 8">Class 8</option>
+            <option value="Navodaya">Navodaya / Comp. Class</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-white/70 uppercase tracking-wide mb-1.5">Contact Mobile No. *</label>
+          <input type="tel" name="mobile_number" required pattern="[0-9]{10}" class="w-full bg-white/5 border border-white/15 focus:border-gold rounded-lg px-4 py-2.5 text-white placeholder-white/30 text-sm focus:outline-none focus:ring-1 focus:ring-gold transition-all" placeholder="10-digit mobile number">
+        </div>
+      </div>
+
+      <!-- Parent/Guardian Name Input -->
+      <div>
+        <label class="block text-xs font-bold text-white/70 uppercase tracking-wide mb-1.5">Parent / Guardian Name *</label>
+        <input type="text" name="guardian_name" required class="w-full bg-white/5 border border-white/15 focus:border-gold rounded-lg px-4 py-2.5 text-white placeholder-white/30 text-sm focus:outline-none focus:ring-1 focus:ring-gold transition-all" placeholder="Father or Mother's name">
+      </div>
+
+      <!-- Email Address Input -->
+      <div>
+        <label class="block text-xs font-bold text-white/70 uppercase tracking-wide mb-1.5">Email Address (Optional)</label>
+        <input type="email" name="parent_email" class="w-full bg-white/5 border border-white/15 focus:border-gold rounded-lg px-4 py-2.5 text-white placeholder-white/30 text-sm focus:outline-none focus:ring-1 focus:ring-gold transition-all" placeholder="parent@example.com">
+      </div>
+
+      <!-- Residential Address Textarea -->
+      <div>
+        <label class="block text-xs font-bold text-white/70 uppercase tracking-wide mb-1.5">Permanent Address / Village *</label>
+        <textarea name="residential_address" rows="2.5" required class="w-full bg-white/5 border border-white/15 focus:border-gold rounded-lg px-4 py-2.5 text-white placeholder-white/30 text-sm focus:outline-none focus:ring-1 focus:ring-gold transition-all resize-none" placeholder="Enter complete address details"></textarea>
+      </div>
+
+      <!-- Submit Action Trigger -->
+      <button type="submit" class="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gold hover:bg-gold-dark text-slate-950 font-bold text-sm px-6 py-3.5 transition-colors shadow-lg shadow-black/30 mt-2 focus:outline-none">
+        Submit Registration Details
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </button>
+
+    </form>
+  </div>
+</div>
+
+<!-- 3. Toggle Control Engine Script Block -->
+<script>
+  const openBtn = document.getElementById('openAdmissionModal');
+  const closeBtn = document.getElementById('closeAdmissionModal');
+  const modal = document.getElementById('admissionModal');
+  const modalContainer = document.getElementById('modalContainer');
+
+  function triggerModalOpen() {
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    setTimeout(() => {
+      modal.classList.remove('opacity-0');
+      modalContainer.classList.remove('scale-95');
+      modalContainer.classList.add('scale-100');
+    }, 10);
+  }
+
+  function triggerModalClose() {
+    modal.classList.add('opacity-0');
+    modalContainer.classList.remove('scale-100');
+    modalContainer.classList.add('scale-95');
+    setTimeout(() => {
+      modal.classList.remove('flex');
+      modal.classList.add('hidden');
+    }, 300);
+  }
+
+  openBtn.addEventListener('click', triggerModalOpen);
+  closeBtn.addEventListener('click', triggerModalClose);
+
+  // Close form backdrop if user clicks outside the card container area frame
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) triggerModalClose();
+  });
+</script>
 </body>
 </html>
