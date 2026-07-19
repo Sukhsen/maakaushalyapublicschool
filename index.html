@@ -555,9 +555,6 @@
     </div>
   </div>
 </footer>
-<!-- ========================================== -->
-<!--   STICKY ADMISSION BUTTON & MODAL FORM    -->
-<!-- ========================================== -->
 
 <!-- 1. Sticky Vertical Floating Button -->
 <button id="openAdmissionModal" class="fixed right-0 top-1/2 -translate-y-1/2 z-50 bg-gold hover:bg-gold-dark text-slate-950 font-extrabold uppercase text-[11px] tracking-widest py-5 px-3.5 rounded-l-xl shadow-2xl transition-all duration-300 hover:pl-5 flex items-center gap-2 border-l border-y border-white/20 select-none focus:outline-none" style="writing-mode: vertical-rl; text-orientation: mixed;">
@@ -584,8 +581,8 @@
       </button>
     </div>
 
-    <!-- Modal Form Body (Change action URL below to your form handler endpoint) -->
-    <form action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST" class="p-6 overflow-y-auto space-y-4 flex-1 custom-scrollbar">
+    <!-- Modal Form Body (Updated ID for Demo Processing) -->
+    <form id="admissionForm" class="p-6 overflow-y-auto space-y-4 flex-1 custom-scrollbar">
       
       <!-- Anti-Spam Honeypot Field -->
       <input type="text" name="_gotcha" style="display:none">
@@ -641,8 +638,8 @@
       </div>
 
       <!-- Submit Action Trigger -->
-      <button type="submit" class="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gold hover:bg-gold-dark text-slate-950 font-bold text-sm px-6 py-3.5 transition-colors shadow-lg shadow-black/30 mt-2 focus:outline-none">
-        Submit Registration Details
+      <button type="submit" id="submitBtn" class="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gold hover:bg-gold-dark text-slate-950 font-bold text-sm px-6 py-3.5 transition-colors shadow-lg shadow-black/30 mt-2 focus:outline-none">
+        <span id="btnText">Submit Registration Details</span>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </button>
 
@@ -650,12 +647,15 @@
   </div>
 </div>
 
-<!-- 3. Toggle Control Engine Script Block -->
+<!-- 3. Toggle & Submission Control Engine Script Block -->
 <script>
   const openBtn = document.getElementById('openAdmissionModal');
   const closeBtn = document.getElementById('closeAdmissionModal');
   const modal = document.getElementById('admissionModal');
   const modalContainer = document.getElementById('modalContainer');
+  const admissionForm = document.getElementById('admissionForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const btnText = document.getElementById('btnText');
 
   function triggerModalOpen() {
     modal.classList.remove('hidden');
@@ -680,9 +680,33 @@
   openBtn.addEventListener('click', triggerModalOpen);
   closeBtn.addEventListener('click', triggerModalClose);
 
-  // Close form backdrop if user clicks outside the card container area frame
+  // Close form backdrop if user clicks outside the card container frame
   modal.addEventListener('click', (e) => {
     if (e.target === modal) triggerModalClose();
+  });
+
+  // Intercept Form Submit for Demo Functionality
+  admissionForm.addEventListener('submit', (e) => {
+    e.preventDefault(); // Prevents page reload
+
+    // Step A: Trigger Loading State UI
+    submitBtn.disabled = true;
+    btnText.textContent = "Processing Registration...";
+    submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
+
+    // Step B: Simulate network delay (1 second)
+    setTimeout(() => {
+      alert("🎉 Demo Submission Successful!\n\nYour details have been successfully captured in this mockup environment. In your live setup, this action will forward a clean application directly to the school's administration inbox.");
+
+      // Step C: Reset layout back to defaults
+      admissionForm.reset();
+      submitBtn.disabled = false;
+      btnText.textContent = "Submit Registration Details";
+      submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+      
+      // Step D: Close modal smoothly
+      triggerModalClose();
+    }, 1000);
   });
 </script>
 </body>
