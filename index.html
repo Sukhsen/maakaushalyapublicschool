@@ -26,6 +26,7 @@
       }
     }
   }
+  
 </script>
 <style>
   html { scroll-behavior: smooth; }
@@ -440,55 +441,97 @@
       <span class="text-[11px] font-bold tracking-[0.18em] uppercase text-emerald">Campus Life</span>
       <h2 class="font-display text-3xl sm:text-4xl font-semibold text-primary mt-3">Glimpses of MKPS</h2>
     </div>
-    <a href="#gallery" class="text-sm font-bold text-primary hover:text-gold transition-colors whitespace-nowrap ml-4">View gallery &rarr;</a>
   </div>
 
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-3.5 auto-rows-[130px] sm:auto-rows-[160px]">
-   <div class="col-span-1 row-span-2 rounded-xl placeholder-tile border border-primary/5">
-    <img src="images/mks10.jpeg" alt="frontentrance" class="w-full h-full object-cover">
-  </div>
-    <div class="col-span-1 row-span-1 rounded-xl placeholder-tile border border-primary/5">
-    <img src="images/mks5.jpeg" alt="frontentrance" class="w-full h-full object-cover">
-  </div>
-    <div class="col-span-1 row-span-1 rounded-xl placeholder-tile border border-primary/5">
-    <img src="images/mks4.jpeg" alt="frontentrance" class="w-full h-full object-cover">
-  </div>
-    <div class="col-span-1 row-span-2 rounded-xl placeholder-tile border border-primary/5">
-    <img src="images/mks3.jpeg" alt="frontentrance" class="w-full h-full object-cover">
-  </div>
-    <div class="col-span-1 row-span-1 rounded-xl placeholder-tile border border-primary/5">
-    <img src="images/mks2.jpeg" alt="frontentrance" class="w-full h-full object-cover">
-  </div>
-    <div class="col-span-1 row-span-1 rounded-xl placeholder-tile border border-primary/5">
-    <img src="images/mks1.jpeg" alt="frontentrance" class="w-full h-full object-cover">
-  </div>
-    <!-- ============ version 1.1 ============ -->
-  
-    <div class="col-span-1 row-span-1 rounded-xl placeholder-tile border border-primary/5">
-    <img src="images/plgnd.jpeg" alt="frontentrance" class="w-full h-full object-cover">
-  </div>
-    <div class="col-span-1 row-span-1 rounded-xl placeholder-tile border border-primary/5">
-    <img src="images/std1.jpeg" alt="student" class="w-full h-full object-cover">
-  </div>
+  <!-- Updated responsive grid with object-contain to prevent cropping -->
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
     
-    <div class="col-span-1 row-span-1 rounded-xl placeholder-tile border border-primary/5">
-    <img src="images/std26jan.jpeg" alt="celeberation" class="w-full h-full object-cover">
-  </div>
-    <div class="col-span-1 row-span-1 rounded-xl placeholder-tile border border-primary/5">
-    <img src="images/teachergrp.jpeg" alt="teacher_group" class="w-full h-full object-cover">
-  </div>
-    
-    <div class="col-span-1 row-span-1 rounded-xl placeholder-tile border border-primary/5">
-    <img src="images/assembly.jpeg" alt="frontentrance" class="w-full h-full object-cover">
-  </div>
-    <div class="col-span-1 row-span-1 rounded-xl placeholder-tile border border-primary/5">
-    <img src="images/26jan.jpeg" alt="frontentrance" class="w-full h-full object-cover">
-  </div>
-  
-    
+    <div class="gallery-item group relative rounded-xl border border-primary/10 overflow-hidden bg-slate-900/5 aspect-square cursor-pointer shadow-sm hover:shadow-md transition-all">
+      <img src="images/mks10.jpeg" alt="Front entrance" class="w-full h-full object-contain p-1 group-hover:scale-105 transition-transform duration-300">
+      <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+        <span class="text-white bg-black/60 px-3 py-1 rounded-full text-xs font-semibold">Click to enlarge</span>
+      </div>
+    </div>
+
+    <div class="gallery-item group relative rounded-xl border border-primary/10 overflow-hidden bg-slate-900/5 aspect-square cursor-pointer shadow-sm hover:shadow-md transition-all">
+      <img src="images/mks5.jpeg" alt="Campus Life" class="w-full h-full object-contain p-1 group-hover:scale-105 transition-transform duration-300">
+      <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+        <span class="text-white bg-black/60 px-3 py-1 rounded-full text-xs font-semibold">Click to enlarge</span>
+      </div>
+    </div>
+
+    <div class="gallery-item group relative rounded-xl border border-primary/10 overflow-hidden bg-slate-900/5 aspect-square cursor-pointer shadow-sm hover:shadow-md transition-all">
+      <img src="images/mks4.jpeg" alt="Campus Life" class="w-full h-full object-contain p-1 group-hover:scale-105 transition-transform duration-300">
+      <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+        <span class="text-white bg-black/60 px-3 py-1 rounded-full text-xs font-semibold">Click to enlarge</span>
+      </div>
+    </div>
+
+    <div class="gallery-item group relative rounded-xl border border-primary/10 overflow-hidden bg-slate-900/5 aspect-square cursor-pointer shadow-sm hover:shadow-md transition-all">
+      <img src="images/mks3.jpeg" alt="Campus Life" class="w-full h-full object-contain p-1 group-hover:scale-105 transition-transform duration-300">
+      <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+        <span class="text-white bg-black/60 px-3 py-1 rounded-full text-xs font-semibold">Click to enlarge</span>
+      </div>
+    </div>
+
+    <div class="gallery-item group relative rounded-xl border border-primary/10 overflow-hidden bg-slate-900/5 aspect-square cursor-pointer shadow-sm hover:shadow-md transition-all">
+      <img src="images/mks2.jpeg" alt="Campus Life" class="w-full h-full object-contain p-1 group-hover:scale-105 transition-transform duration-300">
+      <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+        <span class="text-white bg-black/60 px-3 py-1 rounded-full text-xs font-semibold">Click to enlarge</span>
+      </div>
+    </div>
+
+    <div class="gallery-item group relative rounded-xl border border-primary/10 overflow-hidden bg-slate-900/5 aspect-square cursor-pointer shadow-sm hover:shadow-md transition-all">
+      <img src="images/mks1.jpeg" alt="Campus Life" class="w-full h-full object-contain p-1 group-hover:scale-105 transition-transform duration-300">
+      <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+        <span class="text-white bg-black/60 px-3 py-1 rounded-full text-xs font-semibold">Click to enlarge</span>
+      </div>
+    </div>
+
+    <div class="gallery-item group relative rounded-xl border border-primary/10 overflow-hidden bg-slate-900/5 aspect-square cursor-pointer shadow-sm hover:shadow-md transition-all">
+      <img src="images/plgnd.jpeg" alt="Playground" class="w-full h-full object-contain p-1 group-hover:scale-105 transition-transform duration-300">
+      <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+        <span class="text-white bg-black/60 px-3 py-1 rounded-full text-xs font-semibold">Click to enlarge</span>
+      </div>
+    </div>
+
+    <div class="gallery-item group relative rounded-xl border border-primary/10 overflow-hidden bg-slate-900/5 aspect-square cursor-pointer shadow-sm hover:shadow-md transition-all">
+      <img src="images/std1.jpeg" alt="Students" class="w-full h-full object-contain p-1 group-hover:scale-105 transition-transform duration-300">
+      <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+        <span class="text-white bg-black/60 px-3 py-1 rounded-full text-xs font-semibold">Click to enlarge</span>
+      </div>
+    </div>
+
+    <div class="gallery-item group relative rounded-xl border border-primary/10 overflow-hidden bg-slate-900/5 aspect-square cursor-pointer shadow-sm hover:shadow-md transition-all">
+      <img src="images/std26jan.jpeg" alt="Celebration" class="w-full h-full object-contain p-1 group-hover:scale-105 transition-transform duration-300">
+      <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+        <span class="text-white bg-black/60 px-3 py-1 rounded-full text-xs font-semibold">Click to enlarge</span>
+      </div>
+    </div>
+
+    <div class="gallery-item group relative rounded-xl border border-primary/10 overflow-hidden bg-slate-900/5 aspect-square cursor-pointer shadow-sm hover:shadow-md transition-all">
+      <img src="images/teachergrp.jpeg" alt="Teachers Group" class="w-full h-full object-contain p-1 group-hover:scale-105 transition-transform duration-300">
+      <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+        <span class="text-white bg-black/60 px-3 py-1 rounded-full text-xs font-semibold">Click to enlarge</span>
+      </div>
+    </div>
+
+    <div class="gallery-item group relative rounded-xl border border-primary/10 overflow-hidden bg-slate-900/5 aspect-square cursor-pointer shadow-sm hover:shadow-md transition-all">
+      <img src="images/assembly.jpeg" alt="School Assembly" class="w-full h-full object-contain p-1 group-hover:scale-105 transition-transform duration-300">
+      <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+        <span class="text-white bg-black/60 px-3 py-1 rounded-full text-xs font-semibold">Click to enlarge</span>
+      </div>
+    </div>
+
+    <div class="gallery-item group relative rounded-xl border border-primary/10 overflow-hidden bg-slate-900/5 aspect-square cursor-pointer shadow-sm hover:shadow-md transition-all">
+      <img src="images/26jan.jpeg" alt="Republic Day" class="w-full h-full object-contain p-1 group-hover:scale-105 transition-transform duration-300">
+      <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+        <span class="text-white bg-black/60 px-3 py-1 rounded-full text-xs font-semibold">Click to enlarge</span>
+      </div>
+    </div>
+
   </div>
 </section>
-
 <!-- ============ ADMISSIONS CTA STRIP ============ -->
 <section id="admissions" class="relative overflow-hidden bg-emerald-dark text-white ruled-bg">
   <div class="absolute inset-0 bg-gradient-to-r from-emerald-dark via-emerald to-emerald-dark opacity-95"></div>
@@ -731,6 +774,40 @@
       triggerModalClose();
     }, 1000);
   });
+  // Image Lightbox Viewer
+const lightbox = document.getElementById('imageLightbox');
+const lightboxImg = document.getElementById('lightboxImage');
+const closeLightbox = document.getElementById('closeLightbox');
+const galleryItems = document.querySelectorAll('.gallery-item img');
+
+galleryItems.forEach(img => {
+  img.addEventListener('click', () => {
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightbox.classList.remove('hidden');
+    lightbox.classList.add('flex');
+    setTimeout(() => lightbox.classList.remove('opacity-0'), 10);
+  });
+});
+
+function hideLightbox() {
+  lightbox.classList.add('opacity-0');
+  setTimeout(() => {
+    lightbox.classList.remove('flex');
+    lightbox.classList.add('hidden');
+    lightboxImg.src = '';
+  }, 300);
+}
+
+closeLightbox.addEventListener('click', hideLightbox);
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) hideLightbox();
+});
 </script>
+  <!-- Fullscreen Image Preview Lightbox -->
+<div id="imageLightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 p-4 transition-opacity duration-300 opacity-0">
+  <button id="closeLightbox" class="absolute top-5 right-5 text-white/80 hover:text-white p-2 text-3xl font-bold transition-colors focus:outline-none">&times;</button>
+  <img id="lightboxImage" src="" alt="Full view" class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl">
+</div>
 </body>
 </html>
